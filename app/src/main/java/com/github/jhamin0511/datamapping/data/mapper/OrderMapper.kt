@@ -4,7 +4,9 @@ import com.github.jhamin0511.datamapping.data.dto.OrderDto
 import com.github.jhamin0511.datamapping.data.entity.OrderEntity
 import com.github.jhamin0511.datamapping.data.vo.OrderVo
 
-object OrderMapper : Mapper<OrderDto, OrderEntity, OrderVo> {
+object OrderMapper :
+    MapperDtoToEntity<OrderDto, OrderEntity>,
+    MapperEntityToVo<OrderEntity, OrderVo> {
 
     override fun toEntity(dto: OrderDto): OrderEntity {
         return OrderEntity(
