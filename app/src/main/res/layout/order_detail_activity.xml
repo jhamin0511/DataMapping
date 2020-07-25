@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.github.jhamin0511.datamapping.ui.order.detail.OrderDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="주문 상세" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C8E6C9"
+            android:padding="20dp"
+            android:text="@{vm.bindEntity.name}"
+            android:textColor="#1B5E20"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F8BBD0"
+            android:padding="20dp"
+            android:text="@{vm.bindEntity.userName}"
+            android:textColor="#B71C1C"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="UserName" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#B3E5FC"
+            android:padding="20dp"
+            android:text="@{vm.bindEntity.addressLabel}"
+            android:textColor="#1A237E"
+            app:layout_constraintTop_toBottomOf="@id/user"
+            tools:text="AddressLabel" />
+
+        <TextView
+            android:id="@+id/company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFE0B2"
+            android:padding="20dp"
+            android:text="@{vm.bindEntity.companyName}"
+            android:textColor="#FF6F00"
+            app:layout_constraintTop_toBottomOf="@id/address"
+            tools:text="AddressLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

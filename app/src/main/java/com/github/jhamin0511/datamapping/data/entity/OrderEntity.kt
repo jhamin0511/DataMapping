@@ -1,5 +1,9 @@
 package com.github.jhamin0511.datamapping.data.entity
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class OrderEntity(
     val id: Int,
     var name: String,
@@ -9,4 +13,4 @@ data class OrderEntity(
     var addressLabel: String,
     var companyId: Int,
     var companyName: String
-)
+) : Parcelable
