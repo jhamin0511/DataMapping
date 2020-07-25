@@ -33,6 +33,7 @@
             android:padding="20dp"
             android:text="@{vm.bindEntity.name}"
             android:textColor="#1B5E20"
+            app:bindSafeOnClick="@{vm::bindOnClickName}"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             tools:text="Name" />
 
@@ -44,6 +45,7 @@
             android:padding="20dp"
             android:text="@{vm.bindEntity.userName}"
             android:textColor="#B71C1C"
+            app:bindSafeOnClick="@{vm::bindOnClickUser}"
             app:layout_constraintTop_toBottomOf="@id/name"
             tools:text="UserName" />
 
@@ -55,6 +57,7 @@
             android:padding="20dp"
             android:text="@{vm.bindEntity.addressLabel}"
             android:textColor="#1A237E"
+            app:bindSafeOnClick="@{vm::bindOnClickAddress}"
             app:layout_constraintTop_toBottomOf="@id/user"
             tools:text="AddressLabel" />
 
@@ -66,8 +69,9 @@
             android:padding="20dp"
             android:text="@{vm.bindEntity.companyName}"
             android:textColor="#FF6F00"
+            app:bindSafeOnClick="@{vm::bindOnClickCompany}"
             app:layout_constraintTop_toBottomOf="@id/address"
-            tools:text="AddressLabel" />
+            tools:text="CompanyName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

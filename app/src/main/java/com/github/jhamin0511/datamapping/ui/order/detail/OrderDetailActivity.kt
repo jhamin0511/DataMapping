@@ -10,6 +10,8 @@ import com.github.jhamin0511.datamapping.data.entity.OrderEntity
 import com.github.jhamin0511.datamapping.databinding.OrderDetailActivityBinding
 import com.github.jhamin0511.datamapping.key.ENTITY
 import com.github.jhamin0511.datamapping.ui.base.BaseActivity
+import com.github.jhamin0511.datamapping.viewmodel.EventObserver
+import com.github.jhamin0511.datamapping.widget.dialog.EditDialog
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class OrderDetailActivity : BaseActivity() {
@@ -38,6 +40,7 @@ class OrderDetailActivity : BaseActivity() {
     }
 
     override fun onObserve() {
+        viewModel.observeOrderEdit.observe(this, EventObserver(this::startEditDialog))
     }
 
     override fun onEvent() {
@@ -58,4 +61,11 @@ class OrderDetailActivity : BaseActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
+    private fun startEditDialog(pair: Pair<OrderLogic, String>) {
+        val dialog = EditDialog.getInstance(pair.first, pair.second)
+        val ft = supportFragmentManager.beginTransaction()
+        dialog.show(ft, EditDialog::class.java.simpleName)
+    }
+
 }
