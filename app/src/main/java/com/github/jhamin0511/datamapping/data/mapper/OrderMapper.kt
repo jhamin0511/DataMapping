@@ -4,9 +4,9 @@ import com.github.jhamin0511.datamapping.data.dto.OrderDto
 import com.github.jhamin0511.datamapping.data.entity.OrderEntity
 import com.github.jhamin0511.datamapping.data.vo.OrderVo
 
-object OrderMapper {
+object OrderMapper : Mapper<OrderDto, OrderEntity, OrderVo> {
 
-    fun toEntity(dto: OrderDto): OrderEntity {
+    override fun toEntity(dto: OrderDto): OrderEntity {
         return OrderEntity(
             dto.id,
             dto.name,
@@ -19,11 +19,7 @@ object OrderMapper {
         )
     }
 
-    fun toEntityList(list: List<OrderDto>): MutableList<OrderEntity> {
-        return list.map { toEntity(it) }.toMutableList()
-    }
-
-    fun toVo(e: OrderEntity): OrderVo {
+    override fun toVo(e: OrderEntity): OrderVo {
         return OrderVo(
             e.id,
             e.name,
@@ -31,10 +27,6 @@ object OrderMapper {
             e.addressLabel,
             e.companyName
         )
-    }
-
-    fun toVoList(list: List<OrderEntity>): List<OrderVo> {
-        return list.map { toVo(it) }
     }
 
 }

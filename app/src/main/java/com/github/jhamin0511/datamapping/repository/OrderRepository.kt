@@ -2,7 +2,7 @@ package com.github.jhamin0511.datamapping.repository
 
 import com.github.jhamin0511.datamapping.data.dto.OrderDto
 import com.github.jhamin0511.datamapping.data.entity.OrderEntity
-import com.github.jhamin0511.datamapping.data.mapper.OrderMapper
+import com.github.jhamin0511.datamapping.data.mapper.OrderMapper.toEntityList
 
 class OrderRepository {
 
@@ -13,7 +13,7 @@ class OrderRepository {
             list.add(OrderDto(i))
         }
 
-        return OrderMapper.toEntityList(list)
+        return list.toEntityList()
     }
 
 }

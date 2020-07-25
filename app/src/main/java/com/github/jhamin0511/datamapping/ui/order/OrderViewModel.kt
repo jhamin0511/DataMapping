@@ -3,7 +3,7 @@ package com.github.jhamin0511.datamapping.ui.order
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.github.jhamin0511.datamapping.data.entity.OrderEntity
-import com.github.jhamin0511.datamapping.data.mapper.OrderMapper
+import com.github.jhamin0511.datamapping.data.mapper.OrderMapper.toVoList
 import com.github.jhamin0511.datamapping.data.vo.OrderVo
 import com.github.jhamin0511.datamapping.repository.OrderRepository
 import com.github.jhamin0511.datamapping.widget.recycler.RecyclerListener
@@ -26,7 +26,7 @@ class OrderViewModel(
     fun setRecyclerQuery(query: RecyclerQuery<OrderVo>) {
         recyclerQuery = query
 
-        recyclerQuery.insert(OrderMapper.toVoList(list))
+        recyclerQuery.insert(list.toVoList())
     }
 
     override fun onClick(position: Int) {
